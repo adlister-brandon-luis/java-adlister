@@ -15,4 +15,5 @@ public interface Ads {
     List<Ad> searchByTitle(String title);
 
 
+    Ad findById(long id);
 }
