@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,19 +7,19 @@
 <body>
 <h1>Search Results</h1>
 
-<% List<Ad> searchResults = (List<Ad>) request.getAttribute("searchResults");
-  if (searchResults.isEmpty()) { %>
-<p>No results found.</p>
-<% } else { %>
-<ul>
-  <% for (Ad ad : searchResults) { %>
-  <li>
-    <h3><%= ad.getTitle() %></h3>
-    <p><%= ad.getDescription() %></p>
-    <p>Posted by: <%= ad.getUsername() %></p> <!-- Assuming the Ad class has a getUsername() method -->
-  </li>
-  <% } %>
-</ul>
-<% } %>
+<c:set var="searchResults" value="${requestScope.searchResults}" />
+<c:choose>
+  <c:when test="${empty searchResults}">
+    <p>No results found.</p>
+  </c:when>
+  <c:otherwise>
+    <ul>
+      <c:forEach items="${searchResults}" var="ad">
+        <h3>${ad.title}</h3>
+        <p>${ad.description}</p>
+      </c:forEach>
+    </ul>
+  </c:otherwise>
+</c:choose>
 </body>
 </html>
