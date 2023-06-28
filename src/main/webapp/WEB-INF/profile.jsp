@@ -7,21 +7,31 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
-</head>
+    <title></title></head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
 
-        <p>Here are your ads:</p>
+        <p>${sessionScope.user.username}'s Ads:</p>
 
-        <c:forEach items="${userAds}" var="ad">
-            <h3>${ad.title}</h3>
-            <p>${ad.description}</p>
-        </c:forEach>
-
-
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${userAds}" var="ad">
+                <tr>
+                    <td>${ad.title}</td>
+                    <td>${ad.description}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 
 </body>

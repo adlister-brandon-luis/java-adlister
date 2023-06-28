@@ -16,13 +16,24 @@
 
 <div class="container">
     <h1>Here Are all the ads!</h1>
-
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2><a href="${pageContext.request.contextPath}/details?adId=${ad.id}">${ad.title}</a></h2>
-        </div>
-    </c:forEach>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="ad" items="${ads}">
+            <tr>
+                <td><a href="${pageContext.request.contextPath}/details?adId=${ad.id}">${ad.title}</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
