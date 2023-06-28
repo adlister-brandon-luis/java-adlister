@@ -15,15 +15,15 @@
     <p>Here are your ads:</p>
 
     <c:forEach items="${userAds}" var="ad">
-        <div class="card" style="width: 30%;">
-            <div class="card-body">
+    <div class="card" style="width: 30%;">
+        <div class="card-body">
                 <h3 class="card-title">${ad.title}</h3>
                 <p class="card-text">${ad.description}</p>
-                <a href="/ads/edit" class="btn btn-primary">Edit</a>
+                <a href="/ads/edit" type="submit" class="btn btn-primary">Edit</a>
                 <a href="#" class="btn btn-primary">Delete</a>
-            </div>
-            <hr>
         </div>
+        <hr>
+    </div>
     </c:forEach>
 </body>
 </html>
