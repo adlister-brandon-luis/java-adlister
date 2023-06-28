@@ -16,7 +16,7 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         // store form information
         String username = request.getParameter("username");
@@ -32,23 +32,23 @@ public class RegisterServlet extends HttpServlet {
 
         if (username.isEmpty()){
             System.out.println("Please enter a username");
-            response.sendRedirect("/register");
+            request.getRequestDispatcher("/WEB-INF/fixUsername.jsp").forward(request, response);
             return;
         }
 
         if (existingUser != null) {
             System.out.println("This username is taken");
-            response.sendRedirect("/register");
+            request.getRequestDispatcher("/WEB-INF/fixUsername.jsp").forward(request, response);
             return;
         }
         if (email.isEmpty()) {
                 System.out.println("Please enter email");
-                response.sendRedirect("/register");
+            request.getRequestDispatcher("/WEB-INF/fixEmail.jsp").forward(request, response);
                 return;
             }
         if (password.isEmpty() || !passwordConfirmation) {
                 System.out.println("Please enter/confirm your password");
-                response.sendRedirect("register");
+            request.getRequestDispatcher("/WEB-INF/fixPassword.jsp").forward(request, response);
                 return;
             }
 
