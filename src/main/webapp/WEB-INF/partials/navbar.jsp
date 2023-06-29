@@ -5,9 +5,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">CarlsList</a>
         </div>
-
-
-
+        
         <ul class="nav navbar-nav navbar-right">
             <% request.getAttribute("user"); %>
 
@@ -29,6 +27,5 @@
                 <li><a href="/logout">Logout</a></li>
             </c:if>
         </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
