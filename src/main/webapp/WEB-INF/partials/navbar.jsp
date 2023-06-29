@@ -19,9 +19,7 @@
             <a class="navbar-brand" href="/ads">CarlsList</a>
         <img src="${pageContext.request.contextPath}/images/carl.png" alt="icon" class="navbar-icon">
         </div>
-
-
-
+        
         <ul class="nav navbar-nav navbar-right">
             <% request.getAttribute("user"); %>
 
@@ -48,4 +46,5 @@
             </c:if>
         </ul>
     </div>
+
 </nav>

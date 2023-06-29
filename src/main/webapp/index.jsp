@@ -14,7 +14,7 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Carlslist!</h1>
+        <h1 class="text-center">Welcome to the Carlslist!</h1>
     </div>
 </body>
 </html>

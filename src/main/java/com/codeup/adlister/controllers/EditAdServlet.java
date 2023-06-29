@@ -12,20 +12,15 @@ import java.io.IOException;
 @WebServlet(name = "controllers.EditAdServlet", urlPatterns = "/ads/edit")
 public class EditAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User loggedInUser = (User) request.getSession().getAttribute("user");
 
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
         } else {
-            request.getRequestDispatcher("/WEB-INF/ads/edit.jsp")
-                    .forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);
         }
     }
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User loggedInUser = (User) request.getSession().getAttribute("user");
-
 
 
     }
